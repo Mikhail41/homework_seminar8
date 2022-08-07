@@ -29,17 +29,19 @@ void SorttedArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-            for (int k = 0; k < array.GetLength(1); k++)
+        for (int j = 0; j < array.GetLength(1) - 1; j++)
+            for (int k = 0; k < array.GetLength(1) - 1; k++)
             {
-                if (Matrix[i, j] <= Matrix[i, k]) continue;
-                int temp = Matrix[i, j];
-                Matrix[i, j] = Matrix[i, k];
-                Matrix[i, k] = temp;
+                if (Matrix[i, k] < Matrix[i, k + 1])
+                {
+                    int temp = 0;
+                    temp = Matrix[i, k];
+                    Matrix[i, k] = Matrix[i, k + 1];
+                    Matrix[i, k + 1] = temp;
+                }
             }
     }
 }
-
 
 void PrintArray(int[,] array)
 {
